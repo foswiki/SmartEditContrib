@@ -1,30 +1,133 @@
-data/TWiki/SmartEditContrib.txt NEW
-lib/TWiki/Contrib/SmartEditContrib.pm NEW
-pub/TWiki/SmartEditContrib/img/Thumbs.db NEW
-pub/TWiki/SmartEditContrib/img/adjust.gif NEW
-pub/TWiki/SmartEditContrib/img/bold.gif NEW
-pub/TWiki/SmartEditContrib/img/bullist.gif NEW
-pub/TWiki/SmartEditContrib/img/exthyperlink.png NEW
-pub/TWiki/SmartEditContrib/img/h1.gif NEW
-pub/TWiki/SmartEditContrib/img/h2.gif NEW
-pub/TWiki/SmartEditContrib/img/h3.gif NEW
-pub/TWiki/SmartEditContrib/img/h4.gif NEW
-pub/TWiki/SmartEditContrib/img/h5.gif NEW
-pub/TWiki/SmartEditContrib/img/h6.gif NEW
-pub/TWiki/SmartEditContrib/img/help.gif NEW
-pub/TWiki/SmartEditContrib/img/hr.gif NEW
-pub/TWiki/SmartEditContrib/img/indent.gif NEW
-pub/TWiki/SmartEditContrib/img/italic.gif NEW
-pub/TWiki/SmartEditContrib/img/loupe.gif NEW
-pub/TWiki/SmartEditContrib/img/loupem.gif NEW
-pub/TWiki/SmartEditContrib/img/nop.png NEW
-pub/TWiki/SmartEditContrib/img/numlist.gif NEW
-pub/TWiki/SmartEditContrib/img/outdent.gif NEW
-pub/TWiki/SmartEditContrib/img/redo.png NEW
-pub/TWiki/SmartEditContrib/img/search.gif NEW
-pub/TWiki/SmartEditContrib/img/signature.jpg NEW
-pub/TWiki/SmartEditContrib/img/undo.png NEW
-pub/TWiki/SmartEditContrib/img/verbatim.png NEW
-pub/TWiki/SmartEditContrib/index.html NEW
-pub/TWiki/SmartEditContrib/js/smartedit.js NEW
-templates/edit.smartedit.tmpl NEW
+data/System/SmartEditContrib.txt
+data/System/SmartEditContribHelp.txt
+lib/Foswiki/Contrib/SmartEditContrib.pm
+lib/Foswiki/Contrib/SmartEditContrib/build.pl
+lib/Foswiki/Contrib/SmartEditContrib/DEPENDENCIES
+lib/Foswiki/Contrib/SmartEditContrib/MANIFEST
+pub/System/SmartEditContrib/next.gif
+pub/System/SmartEditContrib/up.jpg
+pub/System/SmartEditContrib/preview.gif
+pub/System/SmartEditContrib/h3.gif
+pub/System/SmartEditContrib/right1.jpg
+pub/System/SmartEditContrib/left.jpg
+pub/System/SmartEditContrib/wikismartActions.js
+pub/System/SmartEditContrib/right.gif
+pub/System/SmartEditContrib/forecolorold.gif
+pub/System/SmartEditContrib/outdent.gif
+pub/System/SmartEditContrib/wikismartEvents.js
+pub/System/SmartEditContrib/h5.gif
+pub/System/SmartEditContrib/bgbottom.gif
+pub/System/SmartEditContrib/h1.gif
+pub/System/SmartEditContrib/close.gif
+pub/System/SmartEditContrib/line.gif
+pub/System/SmartEditContrib/smartEditDynamicDivision.js
+pub/System/SmartEditContrib/br.gif
+pub/System/SmartEditContrib/updown.gif
+pub/System/SmartEditContrib/exthyperlink.png
+pub/System/SmartEditContrib/includesmartediton.js
+pub/System/SmartEditContrib/verbatim.gif
+pub/System/SmartEditContrib/g040.gif
+pub/System/SmartEditContrib/redo.png
+pub/System/SmartEditContrib/strings.png
+pub/System/SmartEditContrib/smartEditAutoCompletion.js
+pub/System/SmartEditContrib/expand.gif
+pub/System/SmartEditContrib/testp.gif
+pub/System/SmartEditContrib/testn.gif
+pub/System/SmartEditContrib/help.gif
+pub/System/SmartEditContrib/bg_ie.gif
+pub/System/SmartEditContrib/upp.jpg
+pub/System/SmartEditContrib/mochikit/Changes
+pub/System/SmartEditContrib/mochikit/lib/MochiKit/Test.js
+pub/System/SmartEditContrib/mochikit/lib/MochiKit/MochiKit.js
+pub/System/SmartEditContrib/mochikit/lib/MochiKit/Signal.js
+pub/System/SmartEditContrib/mochikit/lib/MochiKit/Color.js
+pub/System/SmartEditContrib/mochikit/lib/MochiKit/Format.js
+pub/System/SmartEditContrib/mochikit/lib/MochiKit/__package__.js
+pub/System/SmartEditContrib/mochikit/lib/MochiKit/LoggingPane.js
+pub/System/SmartEditContrib/mochikit/lib/MochiKit/DateTime.js
+pub/System/SmartEditContrib/mochikit/lib/MochiKit/Base.js
+pub/System/SmartEditContrib/mochikit/lib/MochiKit/Async.js
+pub/System/SmartEditContrib/mochikit/lib/MochiKit/MockDOM.js
+pub/System/SmartEditContrib/mochikit/lib/MochiKit/Iter.js
+pub/System/SmartEditContrib/mochikit/lib/MochiKit/DOM.js
+pub/System/SmartEditContrib/mochikit/lib/MochiKit/Visual.js
+pub/System/SmartEditContrib/mochikit/lib/MochiKit/Logging.js
+pub/System/SmartEditContrib/mochikit/include/css/documentation.css
+pub/System/SmartEditContrib/mochikit/include/css/general.css
+pub/System/SmartEditContrib/mochikit/META.json
+pub/System/SmartEditContrib/mochikit/packed/MochiKit/MochiKit.js
+pub/System/SmartEditContrib/mochikit/packed/MochiKit/__package__.js
+pub/System/SmartEditContrib/mochikit/LICENSE.txt
+pub/System/SmartEditContrib/mochikit/doc/rst/MochiKit/Logging.rst
+pub/System/SmartEditContrib/mochikit/doc/rst/MochiKit/Async.rst
+pub/System/SmartEditContrib/mochikit/doc/rst/MochiKit/Signal.rst
+pub/System/SmartEditContrib/mochikit/doc/rst/MochiKit/Visual.rst
+pub/System/SmartEditContrib/mochikit/doc/rst/MochiKit/Format.rst
+pub/System/SmartEditContrib/mochikit/doc/rst/MochiKit/index.rst
+pub/System/SmartEditContrib/mochikit/doc/rst/MochiKit/Base.rst
+pub/System/SmartEditContrib/mochikit/doc/rst/MochiKit/VersionHistory.rst
+pub/System/SmartEditContrib/mochikit/doc/rst/MochiKit/DOM.rst
+pub/System/SmartEditContrib/mochikit/doc/rst/MochiKit/DateTime.rst
+pub/System/SmartEditContrib/mochikit/doc/rst/MochiKit/Iter.rst
+pub/System/SmartEditContrib/mochikit/doc/rst/MochiKit/LoggingPane.rst
+pub/System/SmartEditContrib/mochikit/doc/rst/MochiKit/Color.rst
+pub/System/SmartEditContrib/mochikit/doc/js/toc.js
+pub/System/SmartEditContrib/mochikit/doc/html/MochiKit/Format.html
+pub/System/SmartEditContrib/mochikit/doc/html/MochiKit/Logging.html
+pub/System/SmartEditContrib/mochikit/doc/html/MochiKit/Iter.html
+pub/System/SmartEditContrib/mochikit/doc/html/MochiKit/DateTime.html
+pub/System/SmartEditContrib/mochikit/doc/html/MochiKit/Signal.html
+pub/System/SmartEditContrib/mochikit/doc/html/MochiKit/DOM.html
+pub/System/SmartEditContrib/mochikit/doc/html/MochiKit/Visual.html
+pub/System/SmartEditContrib/mochikit/doc/html/MochiKit/LoggingPane.html
+pub/System/SmartEditContrib/mochikit/doc/html/MochiKit/index.html
+pub/System/SmartEditContrib/mochikit/doc/html/MochiKit/VersionHistory.html
+pub/System/SmartEditContrib/mochikit/doc/html/MochiKit/Async.html
+pub/System/SmartEditContrib/mochikit/doc/html/MochiKit/Base.html
+pub/System/SmartEditContrib/mochikit/doc/html/MochiKit/Color.html
+pub/System/SmartEditContrib/mochikit/MANIFEST
+pub/System/SmartEditContrib/background-leftimg.gif
+pub/System/SmartEditContrib/bullist.gif
+pub/System/SmartEditContrib/warning2.gif
+pub/System/SmartEditContrib/h6.gif
+pub/System/SmartEditContrib/hr.gif
+pub/System/SmartEditContrib/separator.gif
+pub/System/SmartEditContrib/loupe.gif
+pub/System/SmartEditContrib/info.gif
+pub/System/SmartEditContrib/nop.png
+pub/System/SmartEditContrib/h4.gif
+pub/System/SmartEditContrib/undo.png
+pub/System/SmartEditContrib/h2.gif
+pub/System/SmartEditContrib/transparent.gif
+pub/System/SmartEditContrib/previous.gif
+pub/System/SmartEditContrib/normal.gif
+pub/System/SmartEditContrib/background-toolbar.gif
+pub/System/SmartEditContrib/bold.gif
+pub/System/SmartEditContrib/adjust.gif
+pub/System/SmartEditContrib/indent.gif
+pub/System/SmartEditContrib/wikismartstyle.css
+pub/System/SmartEditContrib/boldItalic.gif
+pub/System/SmartEditContrib/warning.gif
+pub/System/SmartEditContrib/screenShotSmartEditor.JPG
+pub/System/SmartEditContrib/down.jpg
+pub/System/SmartEditContrib/code.png
+pub/System/SmartEditContrib/numlist.gif
+pub/System/SmartEditContrib/ok.gif
+pub/System/SmartEditContrib/forecolor.gif
+pub/System/SmartEditContrib/down2.jpg
+pub/System/SmartEditContrib/includesmartedit.js
+pub/System/SmartEditContrib/smiley.png
+pub/System/SmartEditContrib/styles.gif
+pub/System/SmartEditContrib/italic.gif
+pub/System/SmartEditContrib/background-toolbar.png
+pub/System/SmartEditContrib/search.gif
+pub/System/SmartEditContrib/blockquote.gif
+pub/System/SmartEditContrib/g080.gif
+pub/System/SmartEditContrib/wikismartEngine.js
+pub/System/SmartEditContrib/smartEditUI.js
+pub/System/SmartEditContrib/wikilink.png
+pub/System/SmartEditContrib/validate.gif
+templates/preview.smarteditor.tmpl
+templates/view.smarteditorwebtopiclist.tmpl
+templates/edit.smarteditor.tmpl
+templates/view.smarteditorweblist.tmpl

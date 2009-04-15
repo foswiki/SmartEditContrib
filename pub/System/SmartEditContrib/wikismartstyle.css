@@ -1,0 +1,758 @@
+/***************************
+Copyright (C) 2006 Gaël Crova
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version. 
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. 
+
+You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+****************************/
+
+/* SmartEditor style*/
+
+div.wikismartToolbar{
+	width : 99%;
+	height : 25px;
+	border : 1px solid #60a0e0;
+	margin : 1px;
+	margin-right : 2px;
+	vertical-align : middle;
+	padding : 2px;
+	background-color : white;
+}
+
+/*The table containing the toolbar*/
+table.smartEditorToolbar{
+	font-family : Verdana;
+	font-size : 0.8em;
+	border-right :1px solid #c0c0c0;
+	border-bottom : 1px solid #c0c0c0;
+	border-left : 1px solid #c0c0c0;
+	border-top : 1px solid #c0c0c0;
+	background-image: url("./background-toolbar.gif");
+	width : 99%;
+}
+
+/*Default button style under Firefox and Opera*/
+td.smarteditButtonTD{
+	border: 2px groove white;
+	font-weight: bold;
+	height : 25px;
+}
+
+/*Default mouse over button style under Firefox and Opera*/
+td.smarteditButtonTD:hover{
+	/*border: 1px solid gray;*/
+	background-color : #ffd9a0;
+	border: 2px groove white;
+	font-weight: bold;
+}
+
+/*Default mouse over button style under Firefox and Opera*/
+td.smarteditButtonTDPressed{
+	background-color : #ffd9a0;
+	border: 2px groove white;
+	font-weight: bold;
+}
+
+div.LimitationExceededDiv{
+	font-size : 0.7em;
+	background-image: url("./background-toolbar.gif");
+	color : black;
+	text-align : center;
+	width : 99%;
+}
+
+div.LimitationExceededDiv button{
+	border: 2px groove white;
+	font-weight: bold;
+	height : 22px;
+}
+
+div.LimitationExceededDiv button:hover{
+	background-color : #ffd9a0;
+	border: 2px groove white;
+	font-weight: bold;
+}
+
+input.wikismartSearch{
+	height : 17px;
+	font-family : Verdana;
+	border : 1px solid #60a0e0;
+}
+
+input.wikismartSearchFound{
+	height : 17px;
+	font-family : Verdana;
+	border : 1px solid #60a0e0;
+	background-color : green;
+	color : white;
+}
+
+input.wikismartSearchNotFound{
+	height : 17px;
+	font-family : Verdana;
+	border : 1px solid #60a0e0;
+	background-color : red;
+	color : white;
+}
+
+/* Style for the extended style division content*/
+div.SmartEditExtendedStyles table{
+
+}
+
+div.SmartEditExtendedStyles{
+	border : 3px outset #e9eaf2;
+	border-top : 1px solid gray;
+	border-left : 1px solid gray;
+	background-color : white;
+}
+
+/* Style for headings and style buttons into the extented division*/
+td.smarteditHeadingButton{
+	border : 2px groove white;
+	font-size : 0.8em;
+	font-weight: bold;
+}
+
+td.smarteditExpandButton{
+	background-color : white;
+	border : 2px solid #e9eaf2;
+}
+td.smarteditExpandButtonPressed {
+	border : 2px groove white;
+}
+td.smarteditExpandButton:hover{
+	border : 2px groove white;
+}
+
+td.smarteditButtonTDDisabled{
+	color : #808080;
+	border: 2px groove white;
+}
+
+td.smarteditButtonTDDisabled img{
+	opacity : .25;
+}
+
+/* Style for headings and style buttons into the extented division*/
+td.smarteditHeadingButton:hover{
+	border: 2px groove white;
+	background-color : #ffd9a0;
+	width : 30px;
+}
+
+/* Style for headings and style buttons into the extented division*/
+td.smarteditHeadingButtonPressed{
+	background-color : #ffd9a0;
+	border: 2px solid white;
+}
+
+td.smarteditStyleTD{
+	border : 1px solid #e0e0e0;
+}
+
+td.smarteditInsertTD{	
+	border : 1px solid #e0e0e0;
+}
+
+td.smarteditSeparatorTD{
+	padding-right : 1px;
+	padding-left : 1px;
+}
+
+select.smarteditSelect{
+	font-family : Verdana;
+	font-size : 1.0em;
+	margin-left : 5px;
+}
+
+td.smartEditSearchLineInvisible{
+	margin-top : 10px;
+	background-image: url("./background-toolbar.gif");
+	padding : 2px;
+	text-align : center;
+}
+
+tr.smartEditTR{
+	border-top : 1px solid #60a0e0;
+}
+
+div.wikismartinfo{
+	font-family : Verdana;
+	font-size : 1.0em;
+	background-color:red;
+	color : white;
+	margin-top : 5px; 
+}
+
+tr.wikismartSearchRow{
+	height : 28px;
+}
+
+table.smartEditAutocompletionTable{
+	border : 1px solid black;
+	width : 100%;
+	font-family : Verdana;
+	font-size : 0.8em;
+	background-color : white;
+}
+
+table.smartEditAutocompletionTable td.smartMouseOver{
+	background-color : green;
+	color : white;
+	font-weight: bold;
+}
+
+table.smartEditAutocompletionTable td{
+	background-color : white;
+	color : blue;
+}
+
+td.smarteditorWebChoice  select{
+	font-family : Verdana;
+}
+
+tr.smartEditorRowExternalLink table{
+	border : 2px groove white;
+	width : 100%;
+	text-align : left;
+	background-image: url("./background-toolbar.gif");
+}
+
+tr.smartEditorRowInternalLink table{
+	border : 2px groove white;
+	width : 100%;
+	text-align : left;
+	background-image: url("./background-toolbar.gif");
+}
+
+tr.wikismartSearchRow table{
+	border : 2px groove white;
+	width : 100%;
+	text-align : left;
+	height : 28px;
+	background-image: url("./background-toolbar.gif");
+}
+
+tr.wikismartSearchRow td{
+	font-weight: bold;
+}
+
+tr.smartEditorRowInternalLink td{
+	font-weight: bold;
+	width : auto;
+	text-align : left;
+}
+
+tr.smartEditorRowExternalLink tr{
+	text-align : left;
+	height : 25px;
+}
+
+tr.smartEditorRowExternalLink td{
+	font-weight: bold;
+	width : auto;
+	text-align : left;
+}
+
+td.externalLinkButton{
+	border: 2px groove white;
+}
+
+td.externalLinkButton:hover{
+	border : 2px groove white;
+	background-color : #ffd9a0;
+}
+
+td.CustomStringPreferencesTD{
+	font-style: italic;
+	font-size : 0.9em;
+}
+
+tr.smarteditSelectOption{
+	font-size : 0.8em;
+}
+
+tr.smarteditSelectOption{
+	font-size : 0.8em;
+}
+
+td.smarteditSelectOptionImg{
+	background-image: url("./background-leftimg.gif");
+}
+
+tr.smarteditSelectOption:hover{
+	font-size : 0.8em;
+	background-color : #ffd9a0;
+}
+
+tr.smarteditSelectOption:hover img{
+	background-color : #ffd9a0;
+}
+/* Cheat mode for IE */
+tr.smarteditSelectOptionPressed{
+	font-size : 0.8em;
+	background-color : #ffd9a0;	
+}
+
+div.SmartEditInsertCommonString{
+	border : 3px outset #e9eaf2;
+	background-color : white;	
+}
+
+div.SmartEditInsertColor{
+	border : 3px outset #e9eaf2;
+	background-color : white;
+	border-top : 1px solid gray;
+	border-left : 1px solid gray;
+}
+
+
+
+div.SmartEditInsertColor td{
+	width : 15px;
+	height : 15px;
+	border : 1px solid white;
+}
+
+div.SmartEditInsertColor td:hover{
+	border : 1px solid gray;
+}
+
+
+/* Style for Icon division */
+div.SmartEditInsertSmiley{
+	border : 3px outset #e9eaf2;
+	background-color : white;
+	border-top : 1px solid gray;
+	border-left : 1px solid gray;
+	width : 200px;
+}
+
+div.SmartEditInsertSmiley img{
+	border : 1px solid white;
+}
+
+div.SmartEditInsertSmiley img:hover{
+	border : 1px solid gray;
+}
+
+/* Enf of CSS for Firefox and Opera */
+
+/* CSS Styles for IE */
+
+/*The table containing the toolbar*/
+table.smartEditorToolbarIE{
+	font-family : Verdana;
+	font-size : 0.8em;
+	border-right :1px solid #c0c0c0;
+	border-bottom : 1px solid #c0c0c0;
+	border-left : 1px solid #c0c0c0;
+	border-top : 1px solid #c0c0c0;
+	/*background-color : seashell;*/
+	background-image: url("./bg_ie.gif");
+	width : 99%;
+}
+
+table.smartEditorToolbarIE tr{
+padding : 2px;
+}
+
+/*****************************/
+/*              Buttons                           */
+/*****************************/
+
+/* Toolbar button */
+td.smarteditButtonTDIE{
+	height : 25px;
+	padding : 2px;
+	border : 1px hidden #FFFFCC;
+}
+
+/* Toolbar pressed button*/
+td.smarteditButtonTDPressedIE{
+	background-color : #ffd9a0;
+	border: 1px groove white;
+}
+
+td.smarteditButtonTDDisabledIE{
+	height : 25px;
+	padding : 2px;
+	border : 1px hidden #FFFFCC;
+	color : #999999;
+}
+
+/*****************************/
+/*              Wiki Link Row               */
+/*****************************/
+
+/* CSS for internal link selection row*/
+tr.smartEditorRowInternalLinkIE table{
+	border : 2px groove white;
+	width : 100%;
+	text-align : left;
+	background-image: url("./bg_ie.gif");
+}
+
+tr.smartEditorRowInternalLinkIE td{
+	/*font-weight: bold;*/
+	/*width : auto;*/
+	text-align : left;
+}
+
+tr.smartEditorRowInternalLinkIE td select{
+	font-size : 0.9em;
+}
+
+/*****************************/
+/*         External Link Row              */
+/*****************************/
+
+tr.smartEditorRowExternalLinkIE table{
+	border : 2px groove white;
+	width : 100%;
+	text-align : left;
+	background-image: url("./bg_ie.gif");
+}
+
+tr.smartEditorRowExternalLinkIE tr{
+	text-align : left;
+}
+
+tr.smartEditorRowExternalLinkIE td{
+	text-align : left;
+}
+
+td.externalLinkButtonIE{
+	border: 2px groove white;
+}
+
+td.externalLinkButtonIE:hover{
+	border : 2px groove white;
+	background-color : #ffd9a0;
+}
+
+td.externalLinkButtonIEPressed{
+	border : 2px groove black;
+}
+
+/*****************************/
+/*                SearchRow                  */
+/*****************************/
+
+td.wikismartSearchRowIE{
+	/*height : 28px;*/
+	background-image: url("./bg_ie.gif");
+}
+
+tr.wikismartSearchRowIE table{
+	border : 2px groove white;
+	width : 100%;
+	text-align : left;
+	/*background-color : whitesmoke;*/
+	/*background-image: url("./bg_ie.gif");*/
+}
+
+input.wikismartSearchIE{
+	/*height : 17px;*/
+	font-family : Verdana;
+	border : 1px solid #60a0e0;
+	/*background-image: url("./bg_ie.gif");*/
+}
+
+input.wikismartSearchFoundIE{
+	/*height : 17px;*/
+	font-family : Verdana;
+	border : 1px solid #60a0e0;
+	background-color : green;
+	color : white;
+}
+
+input.wikismartSearchNotFoundIE{
+	/*height : 17px;*/
+	font-family : Verdana;
+	border : 1px solid #60a0e0;
+	background-color : red;
+	color : white;
+}
+
+td.smartEditSearchLineInvisibleIE{
+	margin-top : 10px;
+	/*background-color : whitesmoke;*/
+	padding : 2px;
+	text-align : center;
+	/*background-image: url("./bg_ie.gif");*/
+}
+
+/*************************/
+
+/* Style for the extended style division content*/
+div.SmartEditExtendedStylesIE table{
+
+}
+
+div.SmartEditExtendedStylesIE{
+	border : 3px outset #e9eaf2;
+	border-top : 1px solid gray;
+	border-left : 1px solid gray;
+	background-color : white;
+}
+
+/* Style for headings and style buttons into the extented division*/
+td.smarteditHeadingButtonIE{
+	border : 2px groove white;
+	font-size : 0.8em;
+	font-weight: bold;
+}
+
+td.smarteditExpandButtonIE{
+	background-color : white;
+	border : 2px solid #e9eaf2;
+}
+td.smarteditExpandButtonPressedIE {
+	border : 2px groove white;
+}
+td.smarteditExpandButtonIE:hover{
+	border : 2px groove white;
+}
+
+/* Style for headings and style buttons into the extented division*/
+td.smarteditHeadingButtonIE:hover{
+	border: 2px groove white;
+	background-color : #ffd9a0;
+	/*width : 30px;*/
+}
+
+/* Style for headings and style buttons into the extented division*/
+td.smarteditHeadingButtonPressedIE{
+	background-color : #ffd9a0;
+	border: 2px solid white;
+}
+
+td.smarteditStyleTDIE{
+	border : 1px solid #e0e0e0;
+}
+
+td.smarteditInsertTDIE{	
+	border : 1px solid #e0e0e0;
+}
+
+td.smarteditSeparatorTDIE{
+	padding-right : 1px;
+	padding-left : 1px;
+}
+
+select.smarteditSelectIE{
+	font-family : Verdana;
+	font-size : 1.0em;
+	margin-left : 5px;
+}
+
+tr.smartEditTRIE{
+	border-top : 1px solid #60a0e0;
+	background-image: url("./bg_ie.gif");
+}
+
+div.wikismartinfoIE{
+	font-family : Verdana;
+	font-size : 1.0em;
+	background-color:red;
+	color : white;
+	margin-top : 5px; 
+}
+
+table.smartEditAutocompletionTableIE{
+	border : 1px solid black;
+	width : 100%;
+	font-family : Verdana;
+	font-size : 0.8em;
+	background-color : white;
+}
+
+table.smartEditAutocompletionTableIE td.smartMouseOverIE{
+	background-color : green;
+	color : white;
+	/*font-weight: bold;*/
+	text-align : left;
+}
+
+table.smartEditAutocompletionTableIE td{
+	background-color : white;
+	color : blue;
+	text-align : left;
+}
+
+td.smarteditorWebChoiceIE{
+	/*width : 180px;*/
+}
+
+td.smarteditorWebChoiceIE  select{
+	font-family : Verdana;
+	margin : 0px;
+}
+
+td.CustomStringPreferencesTDIE{
+	font-style: italic;
+	font-size : 0.9em;
+}
+
+tr.smarteditSelectOptionIE{
+	font-size : 0.8em;
+	font-family : Verdana;
+	text-align : left;
+}
+
+tr.smarteditSelectOptionIE{
+	font-size : 0.8em;
+	padding : 1px;
+	padding : 1px;
+	font-family : Verdana;
+	text-align : left;
+}
+
+td.smarteditSelectOptionImgIE{
+	background-image: url("./background-leftimg.gif");
+}
+
+/* Cheat mode for IE */
+tr.smarteditSelectOptionPressedIE{
+	font-size : 0.8em;
+	background-color : #ffd9a0;	
+	font-family : Verdana;
+	border-top : 1px solid black;
+	border-bottom : 1px solid black;
+	text-align : left;
+}
+
+tr.smarteditSelectOptionPressedIE td{
+	/*border-top : 1px solid black;
+	border-bottom : 1px solid black;*/
+}
+
+div.SmartEditInsertCommonStringIE{
+	border : 3px outset #e9eaf2;
+	background-color : white;	
+}
+
+div.SmartEditInsertColorIE{
+	border : 3px outset #e9eaf2;
+	background-color : white;
+	border-top : 1px solid gray;
+	border-left : 1px solid gray;
+}
+
+div.SmartEditInsertColorIE td{
+	width : 15px;
+	height : 15px;
+	border : 1px solid white;
+}
+
+div.SmartEditInsertColorIE td:hover{
+	border : 1px solid gray;
+}
+
+
+/* Style for Icon division */
+div.SmartEditInsertSmileyIE{
+	border : 3px outset #e9eaf2;
+	background-color : white;
+	border-top : 1px solid gray;
+	border-left : 1px solid gray;
+	width : 200px;
+}
+
+div.SmartEditInsertSmileyIE img{
+	border : 1px solid white;
+}
+
+div.SmartEditInsertSmileyIE img:hover{
+	border : 1px solid gray;
+}
+
+
+div.SmartEditInsertColorIE{
+	border : 3px outset #e9eaf2;
+	background-color : white;
+	border-top : 1px solid gray;
+	border-left : 1px solid gray;
+}
+
+div.SmartEditInsertColorIE td{
+	width : 15px;
+	height : 15px;
+	border : 1px solid white;
+}
+
+div.SmartEditInsertColorIE td:hover{
+	border : 1px solid gray;
+}
+/* End of styles for IE */
+
+
+/******** CSS Style for view mode ******/
+/* You can modify these styles as you want*/
+/************************************/
+span.red{
+	color : red;
+}
+
+span.blue{
+	color : blue;
+}
+
+span.green{
+	color : green;
+	font-weight: bold;
+}
+
+span.gray{
+	color : gray;	
+}
+
+span.silver{
+	color : silver;
+}
+
+span.maroon{
+	color : maroon;
+}
+
+span.purple{
+	color : purple;
+}
+
+span.fuchsia{
+	color : fuchsia;
+}
+
+span.lime{
+	color : lime;
+}
+
+span.olive{
+	color : olive;
+}
+
+span.yellow{
+	background-color : black;
+	color : yellow;
+}
+
+span.navy{
+	color : navy;
+}
+
+span.aqua{
+	color : aqua;
+}
+
+span.teal{
+	color : teal;
+}
+
+span.white{
+	background-color : black;
+	color : white;
+}

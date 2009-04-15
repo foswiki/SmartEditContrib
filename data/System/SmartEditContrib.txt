@@ -1,51 +1,172 @@
----+!! SmartEditContrib Contrib Package
+---+!! <nop>Smart Edit Contrib
 
-Add short description here of your SmartEditContrib contrib.
+Smart Edit is a !JavaScript editor "&agrave; la wikipedia" for Foswiki. It is
+a WYSIWISAD (What You See Is What Is Saved On Disk :-) editor.
+
+It takes an alternate approach to the WYSIWYG one, as its goals are to be
+   * useful, even for experienced wiki users
+   * predictable: What you see is what will be saved
+   * reliable: use only the standard plain text edit mode (textarea) of the browsers to avoid bugs of their rich text (dom) mode
+   * unobstrusive: as long as you do not use the toolbar, you are still
+     using the traditional raw wiki editor
+
+For this, it assists editing System.WikiSyntax by providing the following features as !JavaScript code:
+   * Foswiki syntax insertion (click the B button to make bold text)
+   * Keyboard shortcuts: hit TAB to ident and shift-TAB to outdent
+   * Configurable menus to insert icons and useful constructs, like various !CommentPlugin types
+   * A dynamic Foswiki link selection, to insert links to topics with an incremental ("search-as-you-type") menus
+   * An interactive search 
+
+Smart Edit is a !JavaScript application, working on *Firefox* , *Internet
+Explorer 8+* and *Mozilla 7.1+* . The code is clearly ugly (it was my first
+real javascript program), and should be rewritten as it can be too slow on big
+topics. It is however much faster on firefox, meaning that you will be able to
+edit comfortably 15k topics with IE and 80k topics on Firefox. However, we use
+it as our default editor daily since 2006 on our intranet.
+
+http://colaz.net/files/smartedit/screenShotSmartEditor.JPG
 
 %TOC%
 
----++ Summary of Contents
-   * 
-   * 
+---++ Features and user manual
+---+++ Styles
 
----++ Detailed Documentation
-%$POD%
+*Supported styles* : Bold, Bold Italic, Italic, Formatted, Verbatim, Blockquote, Heading 1 to 6.
 
----++ Settings
+*How does it work ?*
 
-Settings are stored as preferences variables. To reference a setting write ==%<nop>&lt;plugin&gt;_&lt;setting&gt;%==, e.g. ==%<nop>SMARTEDITCONTRIB_STUB%==
+When you click on the bold button (for example), Smart Edit gets your selection and inserts the bold tags at the right place. This editor doesn't have a context engine so if you click 2 times on the bold button, you will have 2 bold tags.
 
-   * One line description:
-      * Set SHORTDESCRIPTION = Add short description here of your SmartEditContrib contrib
+<nop>SmartEditContrib aumatically detect blanks and line break to insert tags at the right place.
 
-   * Name of the perl package
-      * Set STUB = %$STUB%
+---+++ Lists
 
----++ Installation Instructions
-	* Download the ZIP file from the Plugin web (see below)
-	* Unzip ==%TOPIC%.zip== in your twiki installation directory. Content:
-	| *File:* | *Description:* |
-%$MANIFEST%
-	* Run ==%TOPIC%_installer.pl== to automatically check and install other modules that this module depends on. You can also do this step manually. Dependencies:
-	%$DEPENDENCIES%
+*List types* : Normal (bullet) and numered.
 
-   * Test if the installation was successful:
-      * __enter sample here__
-      * see also [[Sandbox.PluginTest%TOPIC%]]
+*How does it work ?*
+
+Basically, it works like styles but a minimal context was developped to help you.
+
+   * A click on the list button add a list item a the beginning of the current line. You do not need to put the cursor at this place or to select the while line.
+
+   * You just type * and 1 space, then you type your text and when you type on the "return" key, the list item is automatically created.
+   * If you are editing a list item and you hit the return key, a new list item will be created with the same indentation in the next line.
+   * To indent or outdent a list item, you can just hit the "TAB" key of "SHIFT TAB" like in others editors
+   * SHIFT+RETURN creates a br tag on the next line
+
+---+++ Links
+
+   * *External links*
+      * Smart Edit provides you a simple and intuitive interface to insert a link. You can also watch a preview of the given link.
+
+   * *Internal links*
+      * A dynamic interface help you to select and insert a Foswiki link. You just have to select one web in a list, then choose a topic by its name with auto completion assistance.
+
+---+++ Icons
+
+*Configuration* via the Foswiki macros SMARTEDITICONSITE, SMARTEDITICONWEB, SMARTEDITICONUSER that take a list of XML values of the ICON graphics and its LABEL like 
+<br> =&lt;tselement&gt;&lt;tsname&gt; LABEL &lt;/tsname&gt;&lt;tsstring&gt; ICON &lt;/tsstring&gt;&lt;/tselement&gt;=
+<br> e.g. =&lt;tselement&gt;&lt;tsname&gt; %<nop>ICON{lock}%&lt;/tsname&gt;&lt;tsstring&gt;%&lt;nop&gt;ICON{lock}%&lt;/tsstring&gt;&lt;/tselement&gt;=
+
+To add more than one element, you just have to copy from =&lt;tselement&gt;= to =&lt;/tselement&gt;= and to complete each one.
+
+*Warning*: the ICON and LABEL should only use double quotes ", not simple quotes '. The %<nop>ICON{...}% construct uses double quote, as in =&lt;img src="..."&gt;=, you should not use =&lt;img src='...'&gt;= otherwise smartedit wont run and you will stay in raw edit.
+
+*Use* : Just open the icon chooser with icon button and click on your image to insert it into the text.
+
+---+++ Insertion
+
+*Basic insertion* : Smart Edit provides you some basic tags to insert that are =&lt;nop&gt;=, =&lt;br /&gt;= and =&lt;hr /&gt;=. But it is possible to configure personal strings to insert by editing a simple Foswiki macro.
+
+*Configuration* : via the Foswiki macros SMARTEDITSTRINGSITE,  SMARTEDITSTRINGWEB, SMARTEDITSTRINGUSER that take a list of XML values of the STRING to insert and its LABEL like 
+<br> =&lt;tselement&gt;&lt;tsname&gt; LABEL &lt;/tsname&gt;&lt;tsstring&gt; STRING &lt;/tsstring&gt;&lt;/tselement&gt;=
+<br> e.g. =&lt;tselement&gt;&lt;tsname&gt; Today's Date&lt;/tsname&gt;&lt;tsstring&gt; %<nop>GMTIME{$year-$mo-$day}%&lt;/tsstring&gt;&lt;/tselement&gt;=
+
+To add more than one element, you just have to copy from =&lt;tselement&gt;= to =&lt;/tselement&gt;= and to complete each one.
+
+*Warning*: the ICON and LABEL should only use simple quotes ', not double quotes "
+
+
+---+++ Search
+
+Smart Edit also provides you a search toolbar. You just have to type your text and you know automatically if the typed text is found into the textarea.
+
+Info : When you are entering text into the search text box, a click on the "*return*" key automatically selects the first occurence of your text.
+Textarea size
+
+Smart Edit gives you the ability to increase or decrease the textarea height with these buttons: . You can also set the textarea size to the exact number of lines in your text by clicking on the "Auto fit" button. 
+
+---+++ Keyboard shortcuts
+
+   * *TAB* - Indent the current line (no selection needed)
+   * *SHIFT+TAB* - Outdent the current line (no selection needed)
+   * *RETURN*
+      * If there is a list item into the current line, automatically go to the next line and add a new list item with the same indentation
+      * If there is a list item into the current line and no text, automatically go to the next line, deleting last empty list item
+      * If your the text in the current line is indented, go to the next line with the same indentation
+   * *SHIFT+RETURN*
+      * Go to the next line, add a br tag with the same indentation 
+
+---++ Contrib Install new release
+
+When a new release is available, you just have to download the zip file and to unzip it from your foswiki root directory.
+
+---++ Contrib Installation Instructions on pattern-based skins
+   * unzip/untar the plugin at the root level of your foswiki install
+   * If you use the default pattern skin, just put in your <nop>Main.SitePreferences a
+<verbatim>
+      * Set SKIN = smarteditor, pattern
+</verbatim>
+   * Note that it should be compatible with other pattern modifications,
+     e.g. =Set SKIN = smarteditor, editdefault, pattern=
+   * Add the following declarations to the same <nop>Main.SitePreferences topic. You can expand and/or modify these at will
+<verbatim>
+
+   * Due to bugs on other browsers, Smartedit will refuse to run on browsers
+     other than Gecko-based ones (firefox) and Internet Explorer 8 or more. To
+     force it to run anyways, set the variable in your preferences:
+      * Set SMARTEDITFORCE = on
+
+---++ Smartedit
+Warning: only use simple quotes ', not double quotes " in the following 3 vars:
+   * Set SMARTEDITSTRINGSITE = <tselement><tsname>Today's Date</tsname><tsstring>%GMTIME{$year-$mo-$day}%</tsstring></tselement><tselement><tsname>User name</tsname><tsstring>%WIKIUSERNAME%</tsstring></tselement><tselement><tsname>Signature</tsname><tsstring>--&nbsp;%WIKIUSERNAME% - %DATE%</tsstring></tselement><tselement><tsname>Comments, signed and dated, added at top</tsname><tsstring>%<nop>COMMENT{type='top'}%</tsstring></tselement><tselement><tsname>Comments, signed and dated, added at end</tsname><tsstring>%<nop>COMMENT{type='bottom'}%</tsstring></tselement><tselement><tsname>Comments, signed and dated, added immediately before</tsname><tsstring>%<nop>COMMENT{type='above'}%</tsstring></tselement><tselement><tsname>Bullet item added immediately before</tsname><tsstring>%<nop>COMMENT{type='bulletabove'}%</tsstring></tselement><tselement><tsname>Wiki thread mode comment, signed and dated</tsname><tsstring>%<nop>COMMENT{type='threadmode'}%</tsstring></tselement><tselement><tsname>Comments, signed and dated, added recurse after comment box</tsname><tsstring>%<nop>COMMENT{type='belowthreadmode'}%</tsstring></tselement><tselement><tsname>Comments, signed and dated, added immediately below</tsname><tsstring>%<nop>COMMENT{type='below'}%</tsstring></tselement><tselement><tsname>Comments, signed and dated, added at top of table below</tsname><tsstring>%<nop>COMMENT{type='tableprepend'}%</tsstring></tselement><tselement><tsname>Comments, signed and dated, added at end of table above</tsname><tsstring>%<nop>COMMENT{type='tableappend'}%</tsstring></tselement><tselement><tsname>Add before the comment box, after the last comment</tsname><tsstring>%<nop>COMMENT{type='after'}%</tsstring></tselement><tselement><tsname>Action of Action Tracker added to action table directly above</tsname><tsstring>%<nop>COMMENT{type='action'}%</tsstring></tselement><tselement><tsname>Tablerows adding on end</tsname><tsstring>%<nop>COMMENT{type='table'}%</tsstring></tselement><tselement><tsname>Talk using TOC adding on end</tsname><tsstring>%<nop>COMMENT{type='toctalk'}%</tsstring></tselement><tselement><tsname>Create a list of annotated bookmarks</tsname><tsstring>%<nop>COMMENT{type='bookmark'}%</tsstring></tselement><tselement><tsname>Post to a different topic and return to here</tsname><tsstring>%<nop>COMMENT{type='return'}%</tsstring></tselement>
+   * Set SMARTEDITSTRINGWEB = 
+   * Set SMARTEDITSTRINGUSER =
+   
+Warning: only use single quotes ', not double quotes " in the following 3 vars:
+   * Set SMARTEDITICONSITE = <tselement><tsname> %ICON{info}%</tsname><tsstring>%<nop>ICON{info}%</tsstring></tselement><tselement><tsname> %ICON{more}%</tsname><tsstring>%<nop>ICON{more}%</tsstring></tselement><tselement><tsname> %ICON{note}%</tsname><tsstring>%<nop>ICON{note}%</tsstring></tselement><tselement><tsname> %ICON{pencil}%</tsname><tsstring>%<nop>ICON{pencil}%</tsstring></tselement><tselement><tsname> %ICON{question}%</tsname><tsstring>%<nop>ICON{question}%</tsstring></tselement><tselement><tsname> %ICON{stargold}%</tsname><tsstring>%<nop>ICON{stargold}%</tsstring></tselement><tselement><tsname> %ICON{starred}%</tsname><tsstring>%<nop>ICON{starred}%</tsstring></tselement><tselement><tsname> %ICON{stop}%</tsname><tsstring>%<nop>ICON{stop}%</tsstring></tselement><tselement><tsname> %ICON{target}%</tsname><tsstring>%<nop>ICON{target}%</tsstring></tselement><tselement><tsname> %ICON{tip}%</tsname><tsstring>%<nop>ICON{tip}%</tsstring></tselement><tselement><tsname> %ICON{warning}%</tsname><tsstring>%<nop>ICON{warning}%</tsstring></tselement><tselement><tsname> %ICON{wip}%</tsname><tsstring>%<nop>ICON{wip}%</tsstring></tselement><tselement><tsname> %ICON{watch}%</tsname><tsstring>%<nop>ICON{watch}%</tsstring></tselement><tselement><tsname> %ICON{wrench}%</tsname><tsstring>%<nop>ICON{wrench}%</tsstring></tselement><tselement><tsname> %ICON{person}%</tsname><tsstring>%<nop>ICON{person}%</tsstring></tselement><tselement><tsname> %ICON{group}%</tsname><tsstring>%<nop>ICON{group}%</tsstring></tselement><tselement><tsname> %ICON{key}%</tsname><tsstring>%<nop>ICON{key}%</tsstring></tselement><tselement><tsname> %ICON{lock}%</tsname><tsstring>%<nop>ICON{lock}%</tsstring></tselement><tselement><tsname> %ICON{new}%</tsname><tsstring>%<nop>ICON{new}%</tsstring></tselement><tselement><tsname> %ICON{todo}%</tsname><tsstring>%<nop>ICON{todo}%</tsstring></tselement><tselement><tsname> %ICON{updated}%</tsname><tsstring>%<nop>ICON{updated}%</tsstring></tselement><tselement><tsname> %ICON{done}%</tsname><tsstring>%<nop>ICON{done}%</tsstring></tselement><tselement><tsname> %ICON{closed}%</tsname><tsstring>%<nop>ICON{closed}%</tsstring></tselement><tselement><tsname> %ICON{choice-yes}%</tsname><tsstring>%<nop>ICON{choice-yes}%</tsstring></tselement><tselement><tsname> %ICON{choice-no}%</tsname><tsstring>%<nop>ICON{choice-no}%</tsstring></tselement><tselement><tsname> %ICON{choice-cancel}%</tsname><tsstring>%<nop>ICON{choice-cancel}%</tsstring></tselement><tselement><tsname> %ICON{minus}%</tsname><tsstring>%<nop>ICON{minus}%</tsstring></tselement><tselement><tsname> %ICON{plus}%</tsname><tsstring>%<nop>ICON{plus}%</tsstring></tselement><tselement><tsname> %ICON{home}%</tsname><tsstring>%<nop>ICON{home}%</tsstring></tselement><tselement><tsname> %ICON{left}%</tsname><tsstring>%<nop>ICON{left}%</tsstring></tselement><tselement><tsname> %ICON{right}%</tsname><tsstring>%<nop>ICON{right}%</tsstring></tselement><tselement><tsname> %ICON{up}%</tsname><tsstring>%<nop>ICON{up}%</tsstring></tselement><tselement><tsname> %ICON{down}%</tsname><tsstring>%<nop>ICON{down}%</tsstring></tselement>
+   * Set SMARTEDITICONWEB =
+   * Set SMARTEDITICONUSER =
+
+
+</verbatim>
+
+---++ Adaptation to non-pattern based skins
+You will have to adapt your skin for it. the principles are detailed in the =README-SmartEditContrib.txt= in the distrib
 
 ---++ Contrib Info
 
-|  Author: | TWiki:Main/sven |
-|  Copyright &copy;: | <!-- e.g. "2004, SlobSoft Gmbh, All Rights Reserved" --> |
-|  License: | GPL ([[http://www.gnu.org/copyleft/gpl.html][GNU General Public License]]) |
-|  Dependencies: | %$DEPENDENCIES% |
-|  Version: | %$VERSION% |
+   * Set SHORTDESCRIPTION = Toolbar to help edit Foswiki content
+
+|  Add-on Author: | Gael Crova (Special thanks to Colas Nahaboo and Frederic Luddeni for their help and feedback)|
+|  Add-on Version: | 15 Apr 2009 (v3) |
 |  Change History: | <!-- versions below in reverse order -->&nbsp; |
-|  %DATE%: | Initial version |
-|  Home: | http://foswiki.org/Extensions/%TOPIC% |
-|  Feedback: | http://foswiki.org/Extensions/%TOPIC%Dev |
-|  Appraisal: | http://foswiki.org/Extensions/%TOPIC%Appraisal |
+| 15 Apr 2009: | v3: Version for Foswiki 1.0.4 (Colas Nahaboo), bug where smartedit was running at the same time as the wysiwyg editor fixed, new variable SMARTEDITFORCE, disabled on IE 6 and 7 because of bugs, text coloring is now using the same conventions as the wysiwyg editor |
+| 23 Jan 2008: | v2: Version for TWiki Freetown, 4.2.0 |
+|  18 Aug 2006: | IE Toolbar width fixed |
+|  16 Aug 2006: | Tab and SHIFT-TAB events disabled in Opera - Help in a specific topic with the viewprint template |
+|  16 Aug 2006: | Blanks in external links fixed |
+|  10 Aug 2006: | solved display bug for insert internal link |
+|  09 Aug 2006: | solved some bugs on TWiki 4.0.2 |
+|  09 Aug 2006: | Removed some debug information |
+|  08 Aug 2006: | HTML Tags corrected |
+|  08 Aug 2006: | IE display fixed - wiki link bugs fixed |
+|  07 Aug 2006: | Initial version |
+|  CPAN Dependencies: | none |
+|  Other Dependencies: | none |
+|  Perl Version: | 5.005 |
+|  License: | GPL |
+|  Contrib Home: | http://foswiki.org/Extensions/%TOPIC% |
+|  Support: | http://foswiki.org/Support/%TOPIC% |
 
-__Related Topics:__ %SYSTEMWEB%.DefaultPreferences, %USERSWEB%.SitePreferences
-
--- TWiki:Main/sven - %DATE%
+-- Gael Crova - 07 Aug 2006

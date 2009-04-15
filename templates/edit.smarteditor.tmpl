@@ -1,0 +1,40 @@
+%TMPL:INCLUDE{"edit"}%
+%TMPL:DEF{"templatestyle"}%
+<script type="text/javascript" src="%PUBURLPATH%/%SYSTEMWEB%/JavascriptFiles/foswiki_edit.js"></script>
+<script type="text/javascript" src="%PUBURLPATH%/%SYSTEMWEB%/SmartEditContrib/mochikit/lib/MochiKit/MochiKit.js"></script>
+<script type="text/javascript" src="%PUBURLPATH%/%SYSTEMWEB%/SmartEditContrib/wikismartEngine.js"></script>
+<script type="text/javascript" src="%PUBURLPATH%/%SYSTEMWEB%/SmartEditContrib/wikismartActions.js"></script>
+<script type="text/javascript" src="%PUBURLPATH%/%SYSTEMWEB%/SmartEditContrib/smartEditUI.js"></script>
+<script type="text/javascript" src="%PUBURLPATH%/%SYSTEMWEB%/SmartEditContrib/wikismartEvents.js"></script>
+<script type="text/javascript" src="%PUBURLPATH%/%SYSTEMWEB%/SmartEditContrib/smartEditAutoCompletion.js"></script>
+<script type="text/javascript" src="%PUBURLPATH%/%SYSTEMWEB%/SmartEditContrib/smartEditDynamicDivision.js"></script>
+<link rel="stylesheet" type="text/css" href="%PUBURLPATH%/%SYSTEMWEB%/SmartEditContrib/wikismartstyle.css"/>
+%TMPL:END%
+
+
+%TMPL:DEF{"content"}%<div id="smartEditorTopToolbarID"></div>%TMPL:P{"formstart"}%%TMPL:P{"formtop"}%
+%TMPL:P{"toolbar"}%
+%TMPL:P{"pagehelp"}%
+%TMPL:P{"textarea"}%
+%TMPL:P{"formbottom"}%%TMPL:P{"topicinfo"}%
+%TMPL:P{"formend"}%
+%TMPL:P{"pagehelp_nojavascript"}%<script type="text/javascript">
+// The script URL - with / at the end
+wikismartScriptURL = '%PUBURLPATH%/%SYSTEMWEB%/SmartEditContrib/';   
+wikismartWikiHomeURL = '%SCRIPTURL%/view'; 
+wikismartWikiSkin = '%SKIN%';
+// Load all specific preferences
+wikismartSitePreferences = ""+"%SMARTEDITSTRINGSITE%";
+wikismartWebPreferences = ""+"%SMARTEDITSTRINGWEB%";
+wikismartCustomerPreferences = ""+"%SMARTEDITSTRINGUSER%";
+// 3 following lines to add if you have an old smartedit addon installation
+wikismartFoswikiSiteIcons = ""+'%SMARTEDITICONSITE%';
+wikismartFoswikiWebIcons = ""+'%SMARTEDITICONWEB%';
+wikismartFoswikiUserIcons = ""+'%SMARTEDITICONUSER%';
+// End of copy
+wikismartCurrentWeb = "%WEB%";
+wikismartForce = "%SMARTEDITFORCE%";
+// To know the id of the textarea ... if it is not 'topic'
+wikismartEdit('topic');
+</script>%TMPL:END%
+
